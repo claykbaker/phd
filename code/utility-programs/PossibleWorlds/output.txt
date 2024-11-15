@@ -1,0 +1,119 @@
+Propositions
+
+p 
+b 
+
+Total propositions: 2
+------------------------------------------------------------
+
+Interpretations
+
+TT
+TF
+FT
+FF
+
+Total interpretations: 4
+------------------------------------------------------------
+
+Ranked interpretations 
+
+[ TT TF FT FF ] 
+[ TT TF FT ] [ FF ] 
+[ TT TF FF ] [ FT ] 
+[ TT TF ] [ FT FF ] 
+[ TT TF ] [ FT ] [ FF ] 
+[ TT FT FF ] [ TF ] 
+[ TT FT ] [ TF FF ] 
+[ TT FT ] [ TF ] [ FF ] 
+[ TT FF ] [ TF FT ] 
+[ TT ] [ TF FT FF ] 
+[ TT ] [ TF FT ] [ FF ] 
+[ TT FF ] [ TF ] [ FT ] 
+[ TT ] [ TF FF ] [ FT ] 
+[ TT ] [ TF ] [ FT FF ] 
+[ TT ] [ TF ] [ FT ] [ FF ] 
+
+Total ranked interpretations: 15
+------------------------------------------------------------
+
+Possible worlds
+
+[[TT, TF, FT, FF]]
+[[TT, TF, FT], [FF]]
+[[FF], [TT, TF, FT]]
+[[TT, TF, FF], [FT]]
+[[FT], [TT, TF, FF]]
+[[TT, TF], [FT, FF]]
+[[FT, FF], [TT, TF]]
+[[TT, TF], [FT], [FF]]
+[[TT, TF], [FF], [FT]]
+[[FT], [TT, TF], [FF]]
+[[FT], [FF], [TT, TF]]
+[[FF], [TT, TF], [FT]]
+[[FF], [FT], [TT, TF]]
+[[TT, FT, FF], [TF]]
+[[TF], [TT, FT, FF]]
+[[TT, FT], [TF, FF]]
+[[TF, FF], [TT, FT]]
+[[TT, FT], [TF], [FF]]
+[[TT, FT], [FF], [TF]]
+[[TF], [TT, FT], [FF]]
+[[TF], [FF], [TT, FT]]
+[[FF], [TT, FT], [TF]]
+[[FF], [TF], [TT, FT]]
+[[TT, FF], [TF, FT]]
+[[TF, FT], [TT, FF]]
+[[TT], [TF, FT, FF]]
+[[TF, FT, FF], [TT]]
+[[TT], [TF, FT], [FF]]
+[[TT], [FF], [TF, FT]]
+[[TF, FT], [TT], [FF]]
+[[TF, FT], [FF], [TT]]
+[[FF], [TT], [TF, FT]]
+[[FF], [TF, FT], [TT]]
+[[TT, FF], [TF], [FT]]
+[[TT, FF], [FT], [TF]]
+[[TF], [TT, FF], [FT]]
+[[TF], [FT], [TT, FF]]
+[[FT], [TT, FF], [TF]]
+[[FT], [TF], [TT, FF]]
+[[TT], [TF, FF], [FT]]
+[[TT], [FT], [TF, FF]]
+[[TF, FF], [TT], [FT]]
+[[TF, FF], [FT], [TT]]
+[[FT], [TT], [TF, FF]]
+[[FT], [TF, FF], [TT]]
+[[TT], [TF], [FT, FF]]
+[[TT], [FT, FF], [TF]]
+[[TF], [TT], [FT, FF]]
+[[TF], [FT, FF], [TT]]
+[[FT, FF], [TT], [TF]]
+[[FT, FF], [TF], [TT]]
+[[TT], [TF], [FT], [FF]]
+[[TT], [TF], [FF], [FT]]
+[[TT], [FT], [TF], [FF]]
+[[TT], [FT], [FF], [TF]]
+[[TT], [FF], [TF], [FT]]
+[[TT], [FF], [FT], [TF]]
+[[TF], [TT], [FT], [FF]]
+[[TF], [TT], [FF], [FT]]
+[[TF], [FT], [TT], [FF]]
+[[TF], [FT], [FF], [TT]]
+[[TF], [FF], [TT], [FT]]
+[[TF], [FF], [FT], [TT]]
+[[FT], [TT], [TF], [FF]]
+[[FT], [TT], [FF], [TF]]
+[[FT], [TF], [TT], [FF]]
+[[FT], [TF], [FF], [TT]]
+[[FT], [FF], [TT], [TF]]
+[[FT], [FF], [TF], [TT]]
+[[FF], [TT], [TF], [FT]]
+[[FF], [TT], [FT], [TF]]
+[[FF], [TF], [TT], [FT]]
+[[FF], [TF], [FT], [TT]]
+[[FF], [FT], [TT], [TF]]
+[[FF], [FT], [TF], [TT]]
+
+Total possible worlds: 75
+------------------------------------------------------------

@@ -1,0 +1,11 @@
+{
+    "type": "adaption",
+    "data.test": "data/baker-km-2022.csv",
+    "data.pre_train": "data/baker-km-2022.csv",
+    "corresponding_data": true,
+    "domains": ["propositional"],
+    "response_types": ["free"],
+    "models": [
+        "models/Baseline/Random-Model/random_model.py"
+    ]
+}

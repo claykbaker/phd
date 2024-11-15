@@ -1,0 +1,75 @@
+## Version 1.3.0
+
+- Add "accept" task type
+- Extend transitive closure model
+
+## Version 1.2.2
+
+- Fix table visualization HTML code to work on server again
+- Add multiple choice response type support
+- Add encoder support for verify response type
+- Add basic type support in choices and responses
+- Fix subject table visualization from breaking on incomplete data
+- Change propositional encoder from using "," to using ";"
+- Update documentation
+
+## Version 1.2.1
+
+- Fix cache issue
+- Fix issue causing package to load on linux
+- Add squared difference comparator
+- Work on documentation
+
+## Version 1.2.0
+
+- Change row marking in model_log visualization to alternate between colors
+- Add evaluation handlers to suppy auxiliary evaluation targets
+- Add separation of top-level and auxiliary evaluation targets
+- Make comparators dynamically loadable
+- Make output visualizations extend below 0
+- Overhaul documentation
+- Remove domain encoder information from benchmark files
+- Add --version flag
+
+## Version 1.1.0
+
+- Improve rendering performance of output HTML file
+- Extend and improve documentation
+- Change behavior of person training data. Same domains as test data are provided as pre_train_person data, other domains are provided as pre_person_background data
+- Add possibility for model logging in end_participant
+- Add model log visualization
+- Hide inapplicable visualizations
+
+## Version 1.0.0
+
+- Remove training data from coverage benchmarks
+- Make propositional benchmark use crossvalidation
+- Add coverage benchmarks to relational and propositional
+- Add syllogistic network models (2019-Riesterer)
+- Improve package documentation
+- Overhaul benchmark handling
+- Add possibility to supply multiple datasets as list in benchmark JSON
+- Streamline evaluator
+- Add "prediction" evaluation type as an evaluation without adaption
+- Change model interface to pre_train, pre_train_person, and pre_train_background
+- Allow "%ccobra%" placeholder to occur in all benchmark paths
+- CCOBRA now stores the result html on disk and opens this file in the browser instead of temporarily creating a HTTP server itself
+- Add generalized syllogistic helper functionality
+
+## Version 0.16.0
+
+- Add automatic inclusion of default domain encoders
+- Add dynamic CSS dependency handling for result visualizers
+- Add MFA table visualizer
+- Add propositional domain encoder
+- Add coverage evaluation
+- Add more information to HTML output benchmark information
+- Add person_train to MFA model
+- Fix module import problems in modelimporter
+- Add tab-based visualization
+- Enhance cache integration
+- Rework standard benchmarks
+- Update relational benchmarks to use crossvalidation instead of train-test split
+- Fix start_participant hook
+- Add dataset_to_matrix syllogistic helper function
+- Update documentation

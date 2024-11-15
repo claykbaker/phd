@@ -1,0 +1,12 @@
+{
+    "type": "adaption",
+    "data.test": "data/4ps.csv",
+    "data.pre_train": "data/4ps.csv",
+    "corresponding_data": true,
+    "domains": ["spatial-relational"],
+    "response_types": ["verify"],
+    "models": [
+        "models/Baseline/Transitive-Closure/transitive_closure.py",
+        "models/Baseline/Random-Model/random_model.py"
+    ]
+}

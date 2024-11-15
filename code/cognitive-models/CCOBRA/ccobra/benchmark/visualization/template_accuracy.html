@@ -1,0 +1,51 @@
+<div id="bar_plot_{{PLOT_TYPE}}"></div>
+
+<div class='caption'>
+    <p>
+        Bar plot showing the '{{COMPARATOR}}' of the benchmark models when predicting '{{PLOT_TYPE}}'.
+    </p>
+
+    <button name="figsave" type="button" class="button_result" plot_type="bar_plot_{{PLOT_TYPE}}">Save Plot</button>
+</div>
+
+<script>
+    evaluationContents['bar_plot_{{PLOT_TYPE}}'] = {
+        data: [{{PLOT_DATA}}],
+        layout: {
+            title: {text: '{{COMPARATOR}} ({{PLOT_TYPE}})'},
+			autosize: true,
+            yaxis: {title: {text: '{{COMPARATOR}}'}, rangemode: '{{RANGEMODE}}'},
+            xaxis: {categoryarray: {{ORDERING}}}
+        },
+        config: {
+            modeBarButtonsToRemove: ['toImage',
+                                    'sendDataToCloud',
+                                    'select2d',
+                                    'toggleSpikelines',
+                                    'hoverCompareCartesian',
+                                    'hoverClosestCartesian',
+                                    'lasso2d',
+                                    'zoom2d',
+                                    'pan2d',
+                                    'autoScale2d'],
+            displaylogo: false
+        }
+    }
+
+    // Plot the data
+    Plotly.newPlot("bar_plot_{{PLOT_TYPE}}",
+                    evaluationContents['bar_plot_{{PLOT_TYPE}}'].data,
+                    evaluationContents['bar_plot_{{PLOT_TYPE}}'].layout,
+                    evaluationContents['bar_plot_{{PLOT_TYPE}}'].config);
+
+</script>
+
+<script class="trigger_resize_script">
+	var el = document.getElementById("bar_plot_{{PLOT_TYPE}}");
+	var update = {
+		width: el.offsetWidth,
+		height: el.offsetHeight
+	};
+
+	Plotly.relayout("bar_plot_{{PLOT_TYPE}}", update);
+</script>

@@ -1,0 +1,165 @@
+<html>
+    <head>
+        <script>
+            {{PLOTLY_LIB}}
+        </script>
+        <script>
+            {{HTML2CANVAS_LIB}}
+        </script>
+        <script>
+            var evaluationContents = [];
+        </script>
+        <style>
+            {{CSSNESS}}
+        </style>
+		<script>
+			var resultData = {{RESULT_DATA}};
+		</script>
+    </head>
+    <body>
+        <h1>CCOBRA Evaluation Results</h1>
+
+        <table>
+            <tr><th colspan="2">Benchmark Information</th></tr>
+            <tr><td>Benchmark</td><td id="bench_name"></td></tr>
+            <tr><td>Date</td><td id="bench_date"></td></tr>
+            <tr><td benchdata>type</td><td id="bench_type"></td></tr>
+            <tr><td benchdata>domains</td><td id="bench_domain"></td></tr>
+            <tr><td benchdata>response_types</td><td id="bench_resptype"></td></tr>
+            <tr><td benchdata>data.test</td><td id="bench_test"></td></tr>
+            <tr><td benchdata>data.pre_train</td><td id="bench_pre_train"></td></tr>
+            <tr><td benchdata>data.pre_train_person</td><td id="bench_pre_train_person"></td></tr>
+            <tr><td benchdata>data.pre_person_background</td><td id="bench_pre_person_background"></td></tr>
+            <tr><td benchdata>corresponding_data</td><td id="bench_corresponding"></td></tr>
+            <tr><td>Results</td><td><button id="downloadResultButton" class="button_result" type="button">Download</button></td></tr>
+        </table>
+
+        {{CONTENT}}
+
+        <script>
+            // Variable definitions
+            var benchmark = {{BENCHMARK}};
+
+            // Populate content with benchmark information
+            document.getElementById("bench_name").innerHTML = benchmark["name"];
+            document.getElementById("bench_date").innerHTML = benchmark["date"];
+            document.getElementById("bench_type").innerHTML = benchmark["type"];
+            document.getElementById("bench_domain").innerHTML = benchmark["domains"];
+            document.getElementById("bench_resptype").innerHTML = benchmark["response_types"];
+            document.getElementById("bench_test").innerHTML = benchmark["data.test"];
+            document.getElementById("bench_pre_train").innerHTML = benchmark["data.pre_train"];
+            document.getElementById("bench_pre_train_person").innerHTML = benchmark["data.pre_train_person"];
+            document.getElementById("bench_pre_person_background").innerHTML = benchmark["data.pre_person_background"];
+            document.getElementById("bench_corresponding").innerHTML = benchmark["corresponding_data"];
+
+            /**
+                Tab switching
+            **/
+            function toggle(tabName) {
+                console.log("toggle:" + tabName);
+                var tabContent = document.getElementById(tabName);
+                tabContent.hidden = !tabContent.hidden;
+
+                document.getElementById(tabName + "-expand-bar").setAttribute("expanded", tabContent.hidden);
+            }
+
+            var bars = document.getElementsByClassName("expand-bar");
+            for (var i = 0; i < bars.length; i++) {
+                var curBar = bars[i];
+
+                curBar.onclick = function(e) {
+                    var barId = e.target.id;
+                    var tabName = barId.substr(0, barId.length - 11);
+                    toggle(tabName);
+                };
+            }
+
+            /**
+                Saves the plot by creating a screenshot
+            **/
+            function save_plot(plot_div)
+            {
+                // Retrieve zoomness and save current zoom
+                var gd = document.getElementById(plot_div);
+                var xRange = gd.layout.xaxis.range;
+                var yRange = gd.layout.yaxis.range;
+
+                // Save current hover-mode
+                var savedHoverMode = gd.layout.hovermode;
+
+                // Hides the modeBar (for the screenshot)
+                evaluationContents[plot_div].config.displayModeBar = false;
+
+                // New layout with the current zoom level and disabled hover for the screenshot
+                evaluationContents[plot_div].layout.hovermode = false;
+                evaluationContents[plot_div].layout.xaxis.range = xRange;
+                evaluationContents[plot_div].layout.yaxis.range = yRange;
+
+                // Applies new config and layout
+                Plotly.react(plot_div,
+                            evaluationContents[plot_div].data,
+                            evaluationContents[plot_div].layout,
+                            evaluationContents[plot_div].config);
+
+                // Pass plot to html2canvas (and wait --> promise is given)
+                html2canvas(document.getElementById(plot_div)).then(function(canvas) {
+                    // Append the canvas to get a URL
+                    document.body.appendChild(canvas);
+
+                    // Get image content from canvas and trigger download
+                    var url = canvas.toDataURL();
+                    var link = document.createElement('a');
+                    link.setAttribute('href', url);
+                    link.setAttribute('download', plot_div + '.png');
+                    document.body.appendChild(link);
+                    link.click();
+
+                    // Clean up
+                    document.body.removeChild(canvas);
+
+                    // Retrieve zoomness again (for redrawing after the screenshot)
+                    var gd = document.getElementById(plot_div);
+                    var xRange = gd.layout.xaxis.range;
+                    var yRange = gd.layout.yaxis.range;
+
+                    // Config for resetting everything after screenshot (with restored buttons)
+                    evaluationContents[plot_div].config.displayModeBar = true;
+
+                    // Layout for resetting everything after screenshot (with restored hover)
+                    evaluationContents[plot_div].layout.hovermode = savedHoverMode;
+                    evaluationContents[plot_div].layout.xaxis.range = xRange;
+                    evaluationContents[plot_div].layout.yaxis.range = yRange;
+
+                    // Redraw plot
+                    Plotly.react(plot_div,
+                                evaluationContents[plot_div].data,
+                                evaluationContents[plot_div].layout,
+                                evaluationContents[plot_div].config);
+                });
+            }
+
+            var savebuttons = document.getElementsByName("figsave");
+            for (i = 0; i < savebuttons.length; i++) {
+                var cur = savebuttons[i];
+                cur.onclick = function(e) {
+                    save_plot(e.target.getAttribute("plot_type"));
+                };
+            }
+			
+            function downloadResultData() {
+                var csvContent = "data:text/csv;charset=utf-8,";
+                csvContent += resultData.join(String.fromCharCode(10));
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "data.csv");
+                document.body.appendChild(link);
+                link.click();
+            }
+
+            document.getElementById("downloadResultButton").onclick = downloadResultData;
+
+            {{SCRIPTS}}
+        </script>
+    </body>
+</html>

@@ -1,0 +1,11 @@
+{
+    "type": "adaption",
+    "data.test": "data/data.csv",
+    "data.pre_train": "data/data.csv",
+    "corresponding_data": true,
+    "domains": ["propositional"],
+    "response_types": ["single-choice"],
+    "models": [
+        "models/Baseline/Random-Model/random_model.py"
+    ]
+}
