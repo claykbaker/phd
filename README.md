@@ -17,3 +17,8 @@ Contains a JavaFX app for simulating the twenty questions game with the idea to 
 /possible-worlds-app
 
 Contains a Java app for generating propositional interpretations, understanding how to rank them, and visualising possible worlds. Limited to 4 atomic propositions.
+
+Folder: applications
+---------------------
+
+Contains macros, style files and LaTex code for formatting a thesis in Computer Science at the University of Cape Town 
