@@ -1,0 +1,159 @@
+\documentclass[12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}\UseRawInputEncoding
+\usepackage[justification=centering]{caption}
+\usepackage{appendix}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{datetime}
+\usepackage{glossaries}
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{cite}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{tabularx}
+\usepackage[notlot, notlof, nottoc]{tocbibind}
+\graphicspath{ {images/} }
+\renewcommand
+\pagestyle{plain} 
+
+\newcounter{example}[section]
+\newenvironment{example}[1][]{\refstepcounter{example}\par\medskip
+   \noindent \textbf{Example~\theexample. #1} \rmfamily}{\medskip}
+
+\input{resources/packages}
+\input{resources/macros}
+\input{glossary}
+
+\makeglossaries
+
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}{Lemma}[theorem]
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{example}{Example}[chapter]
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        % Title Section
+        \Huge
+        \textbf{My title}\\[1.35cm] 
+        
+        % Author Name
+        \LARGE
+        Name Surname\\[1.35cm] 
+
+        % Thesis Description
+        \Large
+        A thesis presented for the degree of\\
+        \emph{Doctor of Philosophy}\\[0.85cm] 
+        
+        % Logo, Department and University
+        \includegraphics[width=0.3\textwidth]{images/uct-small.jpg}\\[0.85cm] 
+        \Large
+        in the Department of Computer Science\\
+        University of Cape Town\\[0.85cm] 
+
+        % Supervisors    
+        \normalsize
+        Supervisor: Prof. Name Surname\\
+        Co-supervisor: Prof. Name Surname\\[0.65cm] 
+        % Date
+        \Large
+        mm yyyy\\
+    \end{center}
+\end{titlepage}
+
+
+
+\pagenumbering{roman} 
+\setcounter{page}{2} 
+
+\chapter*{Abstract} 
+
+%
+\chapter*{Dedication}
+My dedication.
+\chapter*{Declaration}
+I know the meaning of plagiarism and declare that all work in the dissertation, ``My title'', save for that which is properly acknowledged, is my own.
+\newline
+\newline
+\newline
+\noindent Signed:\\
+\rule[0.5em]{25em}{0.5pt} % This prints a line for the signature
+ \newline
+\newline
+\newline
+\noindent Date:\\
+\rule[0.5em]{25em}{0.5pt} % This prints a line to write the date
+
+\cleardoublepage
+
+\vspace*{0.2\textheight}
+
+\noindent\enquote{\itshape Some quote.}\bigbreak
+
+\hfill Author of quote.
+
+\chapter*{Acknowledgements}
+\chapter*{Publications}
+Versions of the research presented in this thesis have previously appeared in the following publications:
+\begin{itemize}
+    \item A
+    \item B
+    \item C
+\end{itemize}
+
+\chapter*{Auxiliary Publications}
+Research associated with this thesis, but not explicitly included here, has appeared in the following publications:
+\begin{itemize}
+    \item A
+    \item B
+    \item C
+\end{itemize}
+
+\tableofcontents
+
+\listoffigures
+
+\listoftables
+
+\clearpage
+\printglossary[title=Glossary]
+
+\cleardoublepage\pagenumbering{arabic}
+
+\chapter{Introduction}\label{introduction}
+\input{chapters/chapter01}
+
+\chapter{Background and Related Work}\label{background}
+\input{chapters/chapter02}
+
+\chapter{Methodology}\label{methodology}
+\input{chapters/chapter03}
+
+\chapter{Experiments}\label{experiments}
+\input{chapters/chapter04}
+
+\chapter{Results}\label{results}
+\input{chapters/chapter05}
+
+\chapter{Discussion}\label{discussion}
+\input{chapters/chapter06}
+
+\chapter{Conclusions}\label{conclusions}
+\input{chapters/chapter07}
+%
+\bibliographystyle{acm}
+\bibliography{references}
+%
+\appendix\label{appendix}
+%
+\chapter{Supplementary Proofs}\label{appendix-a}
+\chapter{Code}\label{appendix-b}
+\chapter{External URLS}\label{appendix-c}
+%
+\end{document}
