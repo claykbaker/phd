@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.twentyquestionsgame.GameController">
+    <Label fx:id="questionLabel" text="Welcome to the 20 Questions Game!" />
+    <Button text="Next Question" onAction="#handleNextQuestion" />
+</VBox>
+
