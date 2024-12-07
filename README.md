@@ -1,10 +1,10 @@
 Folder: applications
 ---------------------
-/twenty-questions-app
+/twenty-questions
 
 Contains a JavaFX app for simulating the twenty questions game with the idea to apply belief revision to achieve the objective of guessing the correct object, based on a description, in as few attempts as possible.
 
-/possible-worlds-app
+/possible-worlds
 
 Contains a Java app for generating propositional interpretations, understanding how to rank them, and visualising possible worlds. Limited to 4 atomic propositions.
 
@@ -21,4 +21,4 @@ Disclaimer: The code for the above cognitive models is not my own, but has been 
 Folder: thesis-template
 ---------------------
 
-Contains macros, style files and LaTex code for formatting a thesis in Computer Science at the University of Cape Town 
+Contains macros, style files and LaTex code for formatting a thesis in Computer Science at the University of Cape Town. 
